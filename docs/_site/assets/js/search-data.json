@@ -55,123 +55,221 @@
     
     "relUrl": "/basics/oslo"
   },"8": {
+    "doc": "excel2LDES",
+    "title": "Onboarding example: excel file",
+    "content": " ",
+    "url": "/examples/excel#onboarding-example-excel-file",
+    
+    "relUrl": "/examples/excel#onboarding-example-excel-file"
+  },"9": {
+    "doc": "excel2LDES",
+    "title": "excel2LDES",
+    "content": " ",
+    "url": "/examples/excel",
+    
+    "relUrl": "/examples/excel"
+  },"10": {
+    "doc": "json2LDES",
+    "title": "Onboarding example: json file",
+    "content": " ",
+    "url": "/examples/json#onboarding-example-json-file",
+    
+    "relUrl": "/examples/json#onboarding-example-json-file"
+  },"11": {
+    "doc": "json2LDES",
+    "title": "json2LDES",
+    "content": " ",
+    "url": "/examples/json",
+    
+    "relUrl": "/examples/json"
+  },"12": {
+    "doc": "OpenAPI-2-LDES",
+    "title": "Onboarding example: OpenAPI",
+    "content": " ",
+    "url": "/examples/openAPI#onboarding-example-openapi",
+    
+    "relUrl": "/examples/openAPI#onboarding-example-openapi"
+  },"13": {
+    "doc": "OpenAPI-2-LDES",
+    "title": "OpenAPI-2-LDES",
+    "content": " ",
+    "url": "/examples/openAPI",
+    
+    "relUrl": "/examples/openAPI"
+  },"14": {
+    "doc": "postgres2LDE",
+    "title": "Onboarding example: postgres",
+    "content": " ",
+    "url": "/examples/postgres#onboarding-example-postgres",
+    
+    "relUrl": "/examples/postgres#onboarding-example-postgres"
+  },"15": {
+    "doc": "postgres2LDE",
+    "title": "postgres2LDE",
+    "content": " ",
+    "url": "/examples/postgres",
+    
+    "relUrl": "/examples/postgres"
+  },"16": {
+    "doc": "xml2LDES",
+    "title": "Onboarding example: xml file",
+    "content": " ",
+    "url": "/examples/xlm#onboarding-example-xml-file",
+    
+    "relUrl": "/examples/xlm#onboarding-example-xml-file"
+  },"17": {
+    "doc": "xml2LDES",
+    "title": "xml2LDES",
+    "content": " ",
+    "url": "/examples/xlm",
+    
+    "relUrl": "/examples/xlm"
+  },"18": {
     "doc": "Selection Criteria for Conversion",
     "title": "Selection Criteria for Conversion",
     "content": " ",
     "url": "/collecting/conversion",
     
     "relUrl": "/collecting/conversion"
-  },"9": {
+  },"19": {
     "doc": "Selection Criteria for Conversion",
     "title": "Selection Criteria for Conversion",
     "content": " ",
     "url": "/collecting/data_collection",
     
     "relUrl": "/collecting/data_collection"
-  },"10": {
+  },"20": {
     "doc": "Data Discovery and Inventory",
     "title": "Data Discovery and Inventory",
     "content": " ",
     "url": "/collecting/data_discovery",
     
     "relUrl": "/collecting/data_discovery"
-  },"11": {
+  },"21": {
     "doc": "Data Discovery and Inventory",
     "title": "Identify Data to be published",
     "content": "As a first step, one needs to clearly identify the datasets to be published as LDES. | Establish the origin of the data | Establish the parameters for storing and using the data | . ",
     "url": "/collecting/data_discovery#identify-data-to-be-published",
     
     "relUrl": "/collecting/data_discovery#identify-data-to-be-published"
-  },"12": {
+  },"22": {
     "doc": "Data Discovery and Inventory",
     "title": "Discovery",
     "content": "This process usually depends on the type of data being exposed. In order to publish a dataset in the form of LDES, the data must be semantically described using one or more data models. The value of publishing data sets through LDES lies in the easy interlinking of data between companies and organizations over the Web. Selecting the correct model to describe the data, as well as reusing the same model to describe the same kind of data is one of the means to facilitate client consumers. An example of a domain-specific model describing sensors, measurements, and observations is OSLO. | Data is openly available in a predefined format . | The format is structured and non-proprietary . | The format follows W3C standards using RDF and URIs . | The format links to other related objects to provide context (e.g. an Observation links to a Sensor or a Location). | . ",
     "url": "/collecting/data_discovery#discovery",
     
     "relUrl": "/collecting/data_discovery#discovery"
-  },"13": {
+  },"23": {
     "doc": "Data Formats",
     "title": "Data Formats and Applicability",
     "content": " ",
     "url": "/collecting/data_formats#data-formats-and-applicability",
     
     "relUrl": "/collecting/data_formats#data-formats-and-applicability"
-  },"14": {
+  },"24": {
     "doc": "Data Formats",
     "title": "Data Formats",
     "content": " ",
     "url": "/collecting/data_formats",
     
     "relUrl": "/collecting/data_formats"
-  },"15": {
+  },"25": {
     "doc": "Data Cleansing Practices",
     "title": "Data Cleansing Practices",
     "content": " ",
     "url": "/preprocessing/data_cleansing",
     
     "relUrl": "/preprocessing/data_cleansing"
-  },"16": {
+  },"26": {
     "doc": "Data Extraction Techniques",
     "title": "Data Extraction Techniques",
     "content": " ",
     "url": "/preprocessing/data_extraction",
     
     "relUrl": "/preprocessing/data_extraction"
-  },"17": {
+  },"27": {
     "doc": "RML mapping",
     "title": "RML mapping",
     "content": "The RDF Mapping Language (RML) is a robust mapping language that extends the capabilities of R2RML, the W3C standard for converting relational databases into RDF (Resource Description Framework) data. RML allows for the mapping of various structured data formats—including XML, JSON, and CSV—into RDF, thereby facilitating the integration of diverse data sources into a unified semantic ecosystem. Adhering to the syntax of R2RML, RML ensures that its mappings are backward compatible and can be represented as RDF graphs. This characteristic leverages the self-descriptive nature of RDF, enhancing the shareability and machine-readability of mappings. RML’s versatility in handling non-relational data types makes it an invaluable tool for data integration, particularly in the context of Linked Data, where interlinking data from different origins is crucial. By providing a standardized approach to define custom mapping rules, RML empowers users to create interconnected data networks. This contributes to the broader goals of the semantic web, allowing for more complex querying and data analysis across traditionally siloed data stores. You can find more information here . ",
     "url": "/transformation/RML_mapping",
     
     "relUrl": "/transformation/RML_mapping"
-  },"18": {
+  },"28": {
     "doc": "Sparql",
     "title": "Sparql",
     "content": " ",
     "url": "/transformation/Sparql",
     
     "relUrl": "/transformation/Sparql"
-  },"19": {
+  },"29": {
     "doc": "Data Transformation",
     "title": "Data transformation",
     "content": "We have a number of VSDS components available to facilitate the onboarding and transformation of raw data into LDES. They’re collectively known as the LDI bundle. ::: info Linked Data Interactions Repo (LDI) is a bundle of basic components used to receive, generate, transform and output Linked Data. ::: . The LDI project is an effort to make interactions with Linked Data more fluently by providing easy building blocks. To allow a dataset to be published as LDES, we can use the LDI workbench to transform the original messages to linked data version objects with a specific ontology. These objects are then sent to a LDES Server to ingest, store make available to LDES Client consumers. The LDI suite of components can achieve this goal: . | Input of data - receive or scrape a remote HTTP endpoint | Transformation - map the data to a specific ontology, apply various transformations | Publishing - submit to a preconfigured LDES Server | . While there are multiple ways to handle the mapping of the input data, in this guide, we will focus on using the RML tool. ::: info The RMLMapper and the RMLStreamer are applications for Linux, Windows, and macOS machines for generating knowledge graphs. They both rely on declarative rules that define how the knowledge graphs are generated. Get started immediately by following the instructions on their GitHub repositories. ::: . ",
     "url": "/transformation/transformation#data-transformation",
     
     "relUrl": "/transformation/transformation#data-transformation"
-  },"20": {
+  },"30": {
     "doc": "Data Transformation",
     "title": "Data Transformation",
     "content": " ",
     "url": "/transformation/transformation",
     
     "relUrl": "/transformation/transformation"
-  },"21": {
+  },"31": {
     "doc": "OSLO data models",
     "title": "OSLO data models",
     "content": " ",
     "url": "/ontology_mapping/OSLO_models",
     
     "relUrl": "/ontology_mapping/OSLO_models"
-  },"22": {
+  },"32": {
     "doc": "Introduction of OSLO data models",
     "title": "Introduction of OSLO data models",
     "content": " ",
     "url": "/ontology_mapping/introduction",
     
     "relUrl": "/ontology_mapping/introduction"
-  },"23": {
+  },"33": {
     "doc": "Introduction to Ontology Mapping",
     "title": "Introduction to Ontology Mapping",
     "content": " ",
     "url": "/ontology_mapping/ontology_mapping",
     
     "relUrl": "/ontology_mapping/ontology_mapping"
-  },"24": {
+  },"34": {
     "doc": "Versioning data",
     "title": "Versioning data",
     "content": " ",
     "url": "/versioning/versioning_data",
     
     "relUrl": "/versioning/versioning_data"
+  },"35": {
+    "doc": "Publishing as LDES",
+    "title": "Publishing Linked Data Sets as LDES",
+    "content": "Once entities are available in the formed of versioned linked data objects, they can be published as an LDES Stream using a component called LDES Server. The LDES Server is a tool which can be used to publish versioned linked data objects as a stream. In other words, once a dataset has been enhanced with a data model in a linked data form, it can be made available as LDES using the LDES Server. The LDES Server enables a set of LDES-specific features which consumers expect to find like fragmentation for easier data access, pagination, caching, retention management etc. Publish an LDES Quick Start . ",
+    "url": "/publish_LDES/publish_LDES#publishing-linked-data-sets-as-ldes",
+    
+    "relUrl": "/publish_LDES/publish_LDES#publishing-linked-data-sets-as-ldes"
+  },"36": {
+    "doc": "Publishing as LDES",
+    "title": "Publishing as LDES",
+    "content": " ",
+    "url": "/publish_LDES/publish_LDES",
+    
+    "relUrl": "/publish_LDES/publish_LDES"
+  },"37": {
+    "doc": "Ongoing Maintenance and Updates",
+    "title": "Ongoing Maintenance and Updates",
+    "content": " ",
+    "url": "/maintenance_and_security/maintenance",
+    
+    "relUrl": "/maintenance_and_security/maintenance"
+  },"38": {
+    "doc": "Security of data",
+    "title": "Security of data",
+    "content": " ",
+    "url": "/maintenance_and_security/security",
+    
+    "relUrl": "/maintenance_and_security/security"
   }
 }

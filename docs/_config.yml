@@ -20,6 +20,9 @@ collections:
   basics:
     permalink: "/:collection/:path"
     output: true
+  examples:
+    permalink: "/:collection/:path"
+    output: true
   collecting:
     permalink: "/:collection/:path"
     output: true
@@ -35,12 +38,19 @@ collections:
   versioning:
     permalink: "/:collection/:path"
     output: true
-
+  publish_LDES:
+    permalink: "/:collection/:path"
+    output: true
+  maintenance_and_security:
+    permalink: "/:collection/:path"
+    output: true
 
 just_the_docs:
   collections:
     basics:
       name: Understanding the Basics
+    examples:
+      name: Onboarding examples
     collecting:
       name: Collecting the Data
     preprocessing:
@@ -51,8 +61,10 @@ just_the_docs:
       name: Ontology Mapping
     versioning:
       name: Versioning
-    
-
+    publish_LDES:
+      name: Publishing data as LDES
+    maintenance_and_security:
+      name: maintenance and security
     
 
 nav_external_links:
