@@ -17,15 +17,43 @@ ga_tracking_anonymize_ip: true # Use GDPR compliant Google Analytics settings (t
 
 # Define Jekyll collections
 collections:
-  intro:
+  basics:
+    permalink: "/:collection/:path"
+    output: true
+  collecting:
+    permalink: "/:collection/:path"
+    output: true
+  preprocessing:
+    permalink: "/:collection/:path"
+    output: true
+  transformation:
+    permalink: "/:collection/:path"
+    output: true
+  ontology_mapping:
+    permalink: "/:collection/:path"
+    output: true
+  versioning:
     permalink: "/:collection/:path"
     output: true
 
 
 just_the_docs:
   collections:
-    intro:
-      name: Introduction
+    basics:
+      name: Understanding the Basics
+    collecting:
+      name: Collecting the Data
+    preprocessing:
+      name: Data Preprocessing
+    transformation:
+      name: Data transformation
+    ontology_mapping:
+      name: Ontology Mapping
+    versioning:
+      name: Versioning
+    
+
+    
 
 nav_external_links:
   - title: VSDS Technical Docs
