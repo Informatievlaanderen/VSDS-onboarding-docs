@@ -1,4 +1,4 @@
-﻿# Onboarding Docs for non-linked data to LDES
+﻿# Onboarding Docs for publishing non-linked data as LDES
 
 Welcome to our GitHub repository, dedicated to providing a comprehensive guide and toolkit for transforming non-linked datasets into an OSLO (Open Standards for Linked Organizations) compliant Linked Data Event Stream (LDES) utilizing the Flanders Smart Data Space building blocks.
 
