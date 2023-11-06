@@ -9,8 +9,6 @@ callouts:
     title: Note
     color: yellow
 
-aux_links:
-  LDI Repository: https://github.com/Informatievlaanderen/VSDS-Linked-Data-Interactions
 
 # Google Analytics Tracking (optional)
 # Supports a CSV of tracking ID strings (eg. "UA-1234567-89,G-1AB234CDE5")
@@ -31,7 +29,7 @@ just_the_docs:
 
 nav_external_links:
   - title: VSDS Technical Docs
-    url: https://informatievlaanderen.github.io/VSDS-Tech-Docs/
+    url: https://github.com/Informatievlaanderen/VSDS-onboarding-docs/
     hide_icon: false # set to true to hide the external link icon - defaults to false
 
 enable_copy_code_button: true
