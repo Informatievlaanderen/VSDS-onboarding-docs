@@ -1,0 +1,22 @@
+@prefix :         <https://geomobility.eu/id/dcat#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcat:     <http://www.w3.org/ns/dcat#> .
+@prefix dc:       <http://purl.org/dc/terms/> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
+
+[] a dcat:Catalog ;
+  dc:title "Counting traffic in Flanders"@en ;
+  dc:title "Verkeerstellingen in Vlaanderen"@nl ;
+  dc:description "All LDES'es related to counting traffic in Flanders by Geomobility"@en ;
+  dc:description "Alle LDESen ivm. verkeerstellingen in Vlaanderen door Geomobility"@nl ;
+  dcat:contactPoint :contact ;
+  dc:license <https://data.vlaanderen.be/id/licentie/creative-commons-zero-verklaring/v1.0> ;
+  dc:publisher [ a dc:Agent ; foaf:name "GeoMobility"@nl ] .
+
+:contact a vcard:Kind ; vcard:hasEmail <mailto:hello@geomobility.eu> ; foaf:page <https://www.geomobility.eu/en/contact> .
+<mailto:hello@geomobility.eu> a rdfs:Resource .
+<https://www.geomobility.eu/en/contact> a rdfs:Resource .
+
+<https://data.vlaanderen.be/id/licentie/creative-commons-zero-verklaring/v1.0> a dc:LicenseDocument .
+

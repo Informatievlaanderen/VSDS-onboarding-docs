@@ -1,0 +1,43 @@
+PREFIX :             <https://geomobility.eu/ns/traffic#>
+
+CONSTRUCT {
+  {
+    ?site ?sp ?so .
+    ?origins ?op ?oo .
+  }
+
+  GRAPH ?graph {
+    ?id a :Observation ;
+        :_id ?_id ;
+        :type ?type ;
+        :origin ?origin ;
+        :destination ?destination ;
+        :classification ?classification ;
+        :timestamp ?timestamp ;
+        :count ?count ;
+        :poiId ?poiId ;
+        :surveyId ?surveyId ;
+        :site ?site .
+  }
+
+} WHERE {
+  ?msg :poi ?site .
+
+  ?site ?sp ?so .
+  ?site :origins ?origins .
+  ?origins ?op ?oo .
+
+  ?msg :data ?data .
+  ?data :_id ?_id .
+  ?data :poiId ?poiId .
+  ?data :origin ?origin .
+  ?data :destination ?destination .
+  ?data :classification ?classification .
+  bind(replace(?classification, "/", "-") as ?class) .
+  bind(uri(concat("https://geomobility.eu/id/observation/", str(?_id))) as ?graph) .
+  bind(uri(concat("https://geomobility.eu/id/observation/", ?poiId, "/", ?origin, "-", ?destination, "/", ?class)) as ?id) .
+  ?data :type ?type .
+  ?data :timestamp ?timestamp .
+  ?data :count ?count .
+  ?data :surveyId ?surveyId .
+}

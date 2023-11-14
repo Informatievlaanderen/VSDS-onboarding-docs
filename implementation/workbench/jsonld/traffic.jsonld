@@ -1,0 +1,23 @@
+{
+  "@context": {
+    "@vocab": "https://geomobility.eu/ns/traffic#",
+    "poi": {
+      "@context": [
+        "http://geojson.org/geojson-ld/geojson-context.jsonld",
+        {
+          "id": "id"
+        }
+      ]
+    },
+    "data": {
+      "@context": {
+        "timestamp": {
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "count": {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer"
+        }
+      }
+    }
+  }
+}

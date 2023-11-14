@@ -1,0 +1,38 @@
+server:
+  port: 8080
+
+orchestrator:
+  pipelines:
+
+    - name: traffic-pipeline
+      description: "Traffic message in using HTTP, OSLO transformation, version creation & HTTP sending."
+      input:
+        name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioHttpIn
+        adapter:
+          name: be.vlaanderen.informatievlaanderen.ldes.ldi.JsonToLdAdapter
+          config:
+            core-context: file:///ldio/jsonld/traffic.jsonld
+      transformers:
+        - name: be.vlaanderen.informatievlaanderen.ldes.ldi.GeoJsonToWktTransformer
+        - name: be.vlaanderen.informatievlaanderen.ldes.ldi.SparqlConstructTransformer
+          config:
+            query: ./sparql/traffic.to-observation.rq
+        - name: be.vlaanderen.informatievlaanderen.ldes.ldi.SparqlConstructTransformer
+          config:
+            query: ./sparql/observation.to-oslo.rq
+        - name: be.vlaanderen.informatievlaanderen.ldes.ldi.VersionObjectCreator
+          config:
+            member-type: https://data.vlaanderen.be/ns/verkeersmetingen#Verkeersmeeting
+            delimiter: "/"
+            date-observed-property: http://www.w3.org/2006/time#inXSDDateTimeStamp
+            generatedAt-property: http://www.w3.org/ns/prov#generatedAtTime
+            versionOf-property: http://purl.org/dc/terms/isVersionOf
+      outputs:
+        - name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioHttpOut
+          config:
+            endpoint: http://ldes-server:8080/observations
+            content-type: application/n-quads        
+
+spring:
+  codec:
+    max-in-memory-size: 10MB

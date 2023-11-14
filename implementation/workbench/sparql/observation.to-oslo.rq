@@ -1,0 +1,113 @@
+PREFIX rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd:          <http://www.w3.org/2001/XMLSchema#>
+PREFIX dct:          <http://purl.org/dc/terms/>
+PREFIX skos:         <http://www.w3.org/2004/02/skos/core#>
+PREFIX schema:       <https://schema.org/>
+PREFIX locn:         <http://www.w3.org/ns/locn#>
+PREFIX geo:          <http://www.opengis.net/ont/geosparql#>
+PREFIX sf:           <http://www.opengis.net/ont/sf#>
+PREFIX iso19156-ob:  <http://def.isotc211.org/iso19156/2011/Observation#>
+PREFIX iso19156-sp:  <http://def.isotc211.org/iso19156/2011/SamplingPoint#>
+PREFIX iso19103-mt:  <http://def.isotc211.org/iso19103/2015/MeasureTypes#>
+PREFIX sosa:         <http://www.w3.org/ns/sosa/>
+PREFIX ssn:          <http://www.w3.org/ns/ssn/>
+PREFIX time:         <http://www.w3.org/2006/time#>
+PREFIX cdt:          <https://w3id.org/cdt/>
+PREFIX geoc:         <https://opengis.net/def/function/geosparql/custom#>
+
+PREFIX dv-weg:       <https://data.vlaanderen.be/ns/weg#>
+PREFIX dv-netwerk:   <https://data.vlaanderen.be/ns/netwerk#>
+PREFIX cl-vrt:       <https://data.vlaanderen.be/doc/concept/VkmVoertuigType/>
+PREFIX cl-vkt:       <https://data.vlaanderen.be/doc/concept/VkmVerkeersKenmerkType/>
+PREFIX cl-trt:       <https://inspire.ec.europa.eu/codelist/LinkDirectionValue/>
+PREFIX cl-mit:       <https://data.vlaanderen.be/doc/concept/VkmMeetInstrumentType/>
+PREFIX cl-op:        <https://data.vlaanderen.be/doc/concept/VkmObservatieProcedure/>
+
+PREFIX traffic:      <https://geomobility.eu/ns/traffic#>
+PREFIX :             <https://data.vlaanderen.be/ns/verkeersmetingen#>
+
+CONSTRUCT {
+  
+  ?id a :Verkeersmeeting ;
+      iso19156-ob:OM_Observation.phenomenonTime [ 
+        a time:ProperInterval ;
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp ?timestamp ] ;
+        time:hasXSDDuration "PT15M"^^xsd:duration 
+      ] ;
+      :geobserveerdKenmerk [ a :Verkeerskenmerk ; dct:type cl-vkt:aantal ; :voertuigType ?vrt ] ;
+      :geobserveerdObject [ 
+        a :Verkeersmeetpunt ; 
+        :bemonsterdObject [ 
+          a dv-weg:Rijrichting ; 
+          dv-netwerk:netwerkreferentie [ 
+            a dv-netwerk:Linkreferentie ;
+            dv-netwerk:Linkreferentie.toepassingsrichting ?direction ;
+            dv-netwerk:Netwerkreferentie.element [ 
+              a dv-weg:Wegsegment ;
+              dv-netwerk:beginknoop [ a dv-weg:Wegknoop ; dv-netwerk:Knoop.geometrie [ a sf:Point ; geo:asWKT ?geometryA ] ] ;
+              dv-netwerk:eindknoop [ a dv-weg:Wegknoop ; dv-netwerk:Knoop.geometrie [ a sf:Point ; geo:asWKT ?geometryB ] ] ;
+              dv-netwerk:geometriemiddellijn [ a sf:LineString ; geo:asWKT ?geometryMidLine ]
+            ]
+          ] ;
+          dv-weg:rijrichting ?direction
+        ] ; 
+        iso19156-sp:SF_SamplingPoint.shape [ a sf:Point ; geo:asWKT ?geometryP ] ;
+        :Verkeersmeetpunt.netwerkreferentie [ 
+          a dv-netwerk:Puntreferentie ; 
+          dv-netwerk:Linkreferentie.toepassingsrichting cl-trt:bothDirection ;
+          dv-netwerk:Puntreferentie.opPositie [ a iso19103-mt:Length ; schema:unitCode "m"^^cdt:ucumunit ; schema:value ?roadSegmentOffset; ]
+        ]
+      ] ;
+      iso19156-ob:OM_Observation.result ?count ;
+      sosa:madeBySensor [
+        a sosa:Sensor ;
+        ssn:implements [ a sosa:Procedure ; dct:type cl-op:type ] ;
+        dct:type cl-mit:rubberslang
+      ] .
+
+} WHERE {
+  ?id rdf:type traffic:Observation .
+  ?id traffic:timestamp ?timestamp .
+  
+  ?id traffic:classification ?classification .
+  bind (
+    coalesce(
+      IF(?classification = "P/C", cl-vrt:fiets, 1/0),
+      IF(?classification = "M/C", cl-vrt:auto, 1/0),
+      IF(?classification = "CAR", cl-vrt:auto, 1/0),
+      IF(?classification = "LGV", cl-vrt:auto, 1/0),
+      IF(?classification = "OGV1", cl-vrt:vrachtwagen, 1/0),
+      IF(?classification = "OGV2", cl-vrt:vrachtwagen, 1/0),
+      IF(?classification = "HGV", cl-vrt:vrachtwagen, 1/0),
+      IF(?classification = "PSV", cl-vrt:vrachtwagen, 1/0)
+    ) as ?vrt
+  ) .
+
+  ?id traffic:site ?site .
+  ?site locn:geometry ?geometryP .
+
+  ?id traffic:origin ?origin .
+  ?id traffic:destination ?destination .
+  bind (
+    coalesce(
+      IF(?origin = "A" && ?destination = "B", cl-trt:inDirection, 1/0),
+      IF(?origin = "B" && ?destination = "A", cl-trt:inOppositeDirection, 1/0)
+    ) as ?direction
+  ) .
+
+  ?site traffic:origins ?originA .
+  ?originA traffic:name "A" .
+  ?originA locn:geometry ?geometryA .
+
+  ?site traffic:origins ?originB .
+  ?originB traffic:name "B" .
+  ?originB locn:geometry ?geometryB .
+
+  bind(replace(str(?geometryA), "^POINT\\s+[(](?<coordinates>[^)]+)[)]$", "${coordinates}") as ?coordinateA) .
+  bind(replace(str(?geometryB), "^POINT\\s+[(](?<coordinates>[^)]+)[)]$", "${coordinates}") as ?coordinateB) .
+  bind(replace(str(?geometryP), "^POINT\\s+[(](?<coordinates>[^)]+)[)]$", "${coordinates}") as ?coordinateP) .
+  bind(strdt(concat("LINESTRING (", ?coordinateA, ", ",?coordinateP, ", ", ?coordinateB, ")"), geo:wktLiteral) as ?geometryMidLine) .
+  bind(geoc:distanceFromStart(?geometryMidLine, ?geometryP) as ?roadSegmentOffset) .
+  
+  ?id traffic:count ?count .
+}

@@ -1,0 +1,22 @@
+mongock:
+  migration-scan-package: VSDS
+springdoc:
+  swagger-ui:
+    path: /v1/swagger
+    configUrl: /{implementation}/v3/api-docs/swagger-config
+    urls:
+      - url: /{implementation}/v3/api-docs/admin
+        name: admin
+      - url: /{implementation}/v3/api-docs/base
+        name: base
+management:
+  tracing:
+    enabled: false
+ldes-server:
+  host-name: http://localhost:8080/{implementation}
+  retention-cron: "0 0 2 * * *" # run once a day at 02:00
+spring:
+  data:
+    mongodb:
+      uri: mongodb://ldes-mongodb:27017/{implementation}
+      auto-index-creation: true

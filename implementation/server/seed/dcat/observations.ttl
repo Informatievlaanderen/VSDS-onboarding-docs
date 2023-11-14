@@ -1,0 +1,20 @@
+@prefix :         <https://geomobility.eu/id/dcat#> .
+@prefix dcat-vl:  <http://data.vlaanderen.be/ns/metadata-dcat#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcat:     <http://www.w3.org/ns/dcat#> .
+@prefix dc:       <http://purl.org/dc/terms/> .
+@prefix GDI:      <http://metadata.vlaanderen.be/id/GDI-Vlaanderen-Trefwoorden/> .
+@prefix EAR:      <http://publications.europa.eu/resource/authority/access-right/> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+
+[] a dcat:Dataset ;
+  dc:title "Geomobility LDES for traffic counting in Flanders"@en ;
+  dc:title "Geomobility LDES voor verkeerstellingen in Vlaanderen"@nl ;
+  dc:description "TODO: description of Geomobility LDES for traffic counting in Flanders"@en ;
+  dc:description "TODO: beschrijving voor Geomobility LDES voor verkeerstellingen in Vlaanderen"@nl ;
+  dcat:contactPoint :contact ;
+  dcat-vl:statuut GDI:VLOPENDATASERVICE ;
+  dc:accessRights EAR:PUBLIC .
+
+GDI:VLOPENDATASERVICE a skos:Concept ; skos:prefLabel "Vlaamse Open data Service"@nl .
+EAR:PUBLIC a skos:Concept ; skos:prefLabel "openbaar"@nl .

@@ -1,0 +1,57 @@
+version: '3.3'
+services:
+
+  ldes-mongodb:
+    container_name: ${USECASE_NAME:-geomobility-onboarding}_ldes-mongodb
+    image: mongo:${MONGODB_TAG:-latest}
+    ports:
+      - ${MONGODB_PORT:-27017}:27017
+    networks:
+      - geomobility
+
+  ldio-workbench:
+    container_name: ${USECASE_NAME:-geomobility-onboarding}_ldio-workbench
+    # image: ldes/ldi-orchestrator:${LDI_ORCHESTRATOR_TAG:-1.9.0-SNAPSHOT}
+    image: ghcr.io/informatievlaanderen/ldi-orchestrator:latest
+    volumes:
+      - ./workbench/config.yml:/ldio/application.yml:ro
+      - ./workbench/sparql:/ldio/sparql:ro
+      - ./workbench/jsonld:/ldio/jsonld:ro
+    ports:
+      - ${LDIO_WORKBENCH_PORT:-8081}:8080
+    networks:
+      - geomobility 
+    profiles:
+      - delay-started
+
+  ldes-server:
+    container_name: ${USECASE_NAME:-geomobility-onboarding}_ldes-server
+    # image: ldes/ldes-server:${LDES_SERVER_TAG:-2.3.0-SNAPSHOT}
+    image: ldes/ldes-server:${LDES_SERVER_TAG:-2.2.0-SNAPSHOT}
+    environment:
+      - SIS_DATA=/tmp
+    volumes:
+      - ./server/config.yml:/application.yml:ro
+      - ./server/tmp/epsg:/tmp/Databases:rw
+    ports:
+      - ${LDES_SERVER_PORT:-8082}:8080
+    networks:
+      - geomobility
+    depends_on:
+      - ldes-mongodb
+
+  nginx:
+    image: nginx:${NGINX_TAG:-stable}
+    container_name: ${USECASE_NAME:-geomobility-onboarding}_nginx
+    ports:
+      - ${NGINX_PORT:-8080}:8080
+    volumes:
+      - ./proxy/nginx.passtrough.conf:/etc/nginx/conf.d/fwd-ldes-server.conf:ro
+    depends_on:
+      - ldes-server
+    networks:
+      - geomobility
+
+networks:
+  geomobility:
+    name: ${USECASE_NAME:-geomobility-onboarding}_network

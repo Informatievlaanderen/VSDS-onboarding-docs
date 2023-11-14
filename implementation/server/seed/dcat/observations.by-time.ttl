@@ -1,0 +1,17 @@
+@prefix :         <https://geomobility.eu/id/dcat#> .
+@prefix dcat-vl:  <http://data.vlaanderen.be/ns/metadata-dcat#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcat:     <http://www.w3.org/ns/dcat#> .
+@prefix dc:       <http://purl.org/dc/terms/> .
+@prefix GDI:      <http://metadata.vlaanderen.be/id/GDI-Vlaanderen-Trefwoorden/> .
+@prefix EAR:      <http://publications.europa.eu/resource/authority/access-right/> .
+
+[] a dcat:DataService ;
+  dcat:endpointDescription <http://localhost:8080/v1/swagger?urls.primaryName=base> ;
+  dc:title "Traffic Count in Flanders by time (hierarchical from year to hour)"@en ;
+  dc:title "Verkeerstellingen in Vlaanderen op tijdsbasis (hierarchisch van jaar tot uur)"@nl ;
+  dc:description "View by time on the traffic counts in Flanders"@en ;
+  dc:description "View op tijdsbasis van de verkeerstellingen in Vlaanderen"@nl ;
+  dcat:contactPoint :contact ;
+  dcat-vl:statuut GDI:VLOPENDATASERVICE ;
+  dc:accessRights EAR:PUBLIC .
