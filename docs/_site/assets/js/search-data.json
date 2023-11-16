@@ -22,21 +22,21 @@
   },"3": {
     "doc": "Introduction",
     "title": "Introduction",
-    "content": "Transforming non-linked data into linked data is essentially about connecting discrete pieces of information in a way that enables them to be more easily integrated and analyzed. Linked data refers to a method of publishing structured data so that it can be interlinked and become more useful through semantic queries. It’s based on standard web technologies such as HTTP, RDF (Resource Description Framework), and URIs (Uniform Resource Identifiers). Here’s a simplified description of the process: . ",
+    "content": "Transforming non-linked data into linked data is essentially about connecting discrete pieces of information to enable them to be more easily integrated and analyzed. Linked data is a method of publishing structured data to be interlinked and become more useful through semantic queries. It’s based on standard web technologies such as HTTP, RDF (Resource Description Framework), and URIs (Uniform Resource Identifiers). Here’s a simplified description of the process: . ",
     "url": "/basics/Introduction",
     
     "relUrl": "/basics/Introduction"
   },"4": {
     "doc": "Introduction",
     "title": "Identify the Data",
-    "content": "Begin by identifying the datasets that you want to transform into linked data. These could be in various formats such as CSV, JSON, XML, or even in relational databases. ",
+    "content": "Begin by identifying the datasets that you want to transform into linked data. These could be in various formats, such as CSV, JSON, XML, or relational databases. ",
     "url": "/basics/Introduction#identify-the-data",
     
     "relUrl": "/basics/Introduction#identify-the-data"
   },"5": {
     "doc": "Introduction",
     "title": "OSLO mapping",
-    "content": "Model the Data . Create a data model using semantic web standards like RDF. This involves defining classes and relationships (ontologies) that describe how different pieces of data relate to each other. Assign URIs . Assign URIs to each entity and concept within your data. URIs are unique identifiers that not only serve as references to your data entities but also potentially provide a way to access them via HTTP. Create Relationships . Define relationships between different data entities using RDF. This involves creating triples that consist of a subject, predicate, and object, essentially linking different pieces of data. standardize Data Formats . Convert your data into a standard format that can be easily integrated with other datasets. RDF is a common format for linked data, but there are others like Turtle or JSON-LD. ",
+    "content": "Model the Data . Create a data model using semantic web standards like RDF that define classes and relationships (ontologies) that describe how different data relates. Assign URIs . Assign URIs to each entity and concept within your data. URIs are unique identifiers that serve as references to your data entities and potentially provide a way to access them via HTTP. Create Relationships . Define relationships between different data entities using RDF. This involves creating triples that consist of a subject, predicate, and object, essentially linking other pieces of data. Standardize Data Formats . Convert your data into a standard format easily integrated with other datasets. RDF is a standard format for linked data, but others like Turtle or JSON-LD exist. ",
     "url": "/basics/Introduction#oslo-mapping",
     
     "relUrl": "/basics/Introduction#oslo-mapping"
@@ -133,138 +133,152 @@
     "relUrl": "/collecting/conversion"
   },"19": {
     "doc": "Selection Criteria for Conversion",
+    "title": "Data collection",
+    "content": " ",
+    "url": "/collecting/data_collection#data-collection",
+    
+    "relUrl": "/collecting/data_collection#data-collection"
+  },"20": {
+    "doc": "Selection Criteria for Conversion",
     "title": "Selection Criteria for Conversion",
     "content": " ",
     "url": "/collecting/data_collection",
     
     "relUrl": "/collecting/data_collection"
-  },"20": {
+  },"21": {
     "doc": "Data Discovery and Inventory",
     "title": "Data Discovery and Inventory",
     "content": " ",
     "url": "/collecting/data_discovery",
     
     "relUrl": "/collecting/data_discovery"
-  },"21": {
+  },"22": {
     "doc": "Data Discovery and Inventory",
     "title": "Identify Data to be published",
-    "content": "As a first step, one needs to clearly identify the datasets to be published as LDES. | Establish the origin of the data | Establish the parameters for storing and using the data | . ",
+    "content": "As a first step, one must clearly identify the datasets to be published as LDES. | Establish the origin of the data | Establish the parameters for storing and using the data | . ",
     "url": "/collecting/data_discovery#identify-data-to-be-published",
     
     "relUrl": "/collecting/data_discovery#identify-data-to-be-published"
-  },"22": {
+  },"23": {
     "doc": "Data Discovery and Inventory",
     "title": "Discovery",
     "content": "This process usually depends on the type of data being exposed. In order to publish a dataset in the form of LDES, the data must be semantically described using one or more data models. The value of publishing data sets through LDES lies in the easy interlinking of data between companies and organizations over the Web. Selecting the correct model to describe the data, as well as reusing the same model to describe the same kind of data is one of the means to facilitate client consumers. An example of a domain-specific model describing sensors, measurements, and observations is OSLO. | Data is openly available in a predefined format . | The format is structured and non-proprietary . | The format follows W3C standards using RDF and URIs . | The format links to other related objects to provide context (e.g. an Observation links to a Sensor or a Location). | . ",
     "url": "/collecting/data_discovery#discovery",
     
     "relUrl": "/collecting/data_discovery#discovery"
-  },"23": {
+  },"24": {
     "doc": "Data Formats",
     "title": "Data Formats and Applicability",
     "content": " ",
     "url": "/collecting/data_formats#data-formats-and-applicability",
     
     "relUrl": "/collecting/data_formats#data-formats-and-applicability"
-  },"24": {
+  },"25": {
     "doc": "Data Formats",
     "title": "Data Formats",
     "content": " ",
     "url": "/collecting/data_formats",
     
     "relUrl": "/collecting/data_formats"
-  },"25": {
+  },"26": {
     "doc": "Data Cleansing Practices",
     "title": "Data Cleansing Practices",
     "content": " ",
     "url": "/preprocessing/data_cleansing",
     
     "relUrl": "/preprocessing/data_cleansing"
-  },"26": {
+  },"27": {
     "doc": "Data Extraction Techniques",
     "title": "Data Extraction Techniques",
     "content": " ",
     "url": "/preprocessing/data_extraction",
     
     "relUrl": "/preprocessing/data_extraction"
-  },"27": {
+  },"28": {
     "doc": "RML mapping",
     "title": "RML mapping",
-    "content": "The RDF Mapping Language (RML) is a robust mapping language that extends the capabilities of R2RML, the W3C standard for converting relational databases into RDF (Resource Description Framework) data. RML allows for the mapping of various structured data formats—including XML, JSON, and CSV—into RDF, thereby facilitating the integration of diverse data sources into a unified semantic ecosystem. Adhering to the syntax of R2RML, RML ensures that its mappings are backward compatible and can be represented as RDF graphs. This characteristic leverages the self-descriptive nature of RDF, enhancing the shareability and machine-readability of mappings. RML’s versatility in handling non-relational data types makes it an invaluable tool for data integration, particularly in the context of Linked Data, where interlinking data from different origins is crucial. By providing a standardized approach to define custom mapping rules, RML empowers users to create interconnected data networks. This contributes to the broader goals of the semantic web, allowing for more complex querying and data analysis across traditionally siloed data stores. You can find more information here . ",
+    "content": "The RDF Mapping Language (RML) is a robust mapping language that extends the capabilities of R2RML, the W3C standard for converting relational databases into RDF (Resource Description Framework) data. RML allows for mapping various structured data formats—including XML, JSON, and CSV—into RDF, thereby facilitating the integration of diverse data sources into a unified semantic ecosystem. Adhering to the syntax of R2RML, RML ensures that its mappings are backward compatible and can be represented as RDF graphs. This characteristic leverages RDF’s self-descriptive nature, enhancing mappings’ shareability and machine-readability. RML’s versatility in handling non-relational data types makes it an invaluable tool for data integration, particularly in the context of Linked Data, where interlinking data from different origins is crucial. By providing a standardized approach to define custom mapping rules, RML empowers users to create interconnected data networks. This contributes to the broader goals of the semantic web, allowing for more complex querying and data analysis across traditionally siloed data stores. You can find more information here . ",
     "url": "/transformation/RML_mapping",
     
     "relUrl": "/transformation/RML_mapping"
-  },"28": {
+  },"29": {
     "doc": "Sparql",
     "title": "Sparql",
-    "content": " ",
+    "content": "SPARQL, an acronym for SPARQL Protocol and RDF Query Language, is a powerful language designed primarily for querying and manipulating RDF (Resource Description Framework) data. Its versatility and expressiveness make it an ideal tool for converting various data formats into Linked Data, aligning with Flanders OSLO ontologies. Using SPARQL, existing data sources can be mapped to OSLO (Open Standards for Linking Organizations) ontologies. These ontologies define a set of concepts and relationships important for public administration, local government, and related entities. SPARQL queries can extract relevant data from existing databases or data sources. Afterwards, the extracted data is then transformed into RDF triples, aligned with OSLO models. ",
     "url": "/transformation/Sparql",
     
     "relUrl": "/transformation/Sparql"
-  },"29": {
+  },"30": {
+    "doc": "Sparql",
+    "title": "Some examples",
+    "content": "Following Sparql snippit transforms a dataset with longitude and latitude into a wkt string: . bind(strdt(concat(\"POINT(\",str(?longitude),\" \",str(?latitude),\")\"),geo:wktLiteral) as ?wkt) . Following Sparql snippit transforms the timeslot value in the a . ?data :timeSlot ?timeSlot . bind(strdt(concat(replace(?date,\"/\",\"-\"),\"T\",?timeSlot,\"Z\"),xsd:dateTime) as ?timestamp) . Following Sparql snippit creates a unique URI by combining guid and the exact timestamp: . bind(uri(concat(\"https://www.signco.be/id/measuring-point/\",?guid, \"#\", str(?timestamp))) as ?graph) . ",
+    "url": "/transformation/Sparql#some-examples",
+    
+    "relUrl": "/transformation/Sparql#some-examples"
+  },"31": {
     "doc": "Data Transformation",
     "title": "Data transformation",
-    "content": "We have a number of VSDS components available to facilitate the onboarding and transformation of raw data into LDES. They’re collectively known as the LDI bundle. ::: info Linked Data Interactions Repo (LDI) is a bundle of basic components used to receive, generate, transform and output Linked Data. ::: . The LDI project is an effort to make interactions with Linked Data more fluently by providing easy building blocks. To allow a dataset to be published as LDES, we can use the LDI workbench to transform the original messages to linked data version objects with a specific ontology. These objects are then sent to a LDES Server to ingest, store make available to LDES Client consumers. The LDI suite of components can achieve this goal: . | Input of data - receive or scrape a remote HTTP endpoint | Transformation - map the data to a specific ontology, apply various transformations | Publishing - submit to a preconfigured LDES Server | . While there are multiple ways to handle the mapping of the input data, in this guide, we will focus on using the RML tool. ::: info The RMLMapper and the RMLStreamer are applications for Linux, Windows, and macOS machines for generating knowledge graphs. They both rely on declarative rules that define how the knowledge graphs are generated. Get started immediately by following the instructions on their GitHub repositories. ::: . ",
+    "content": "We have a number of VSDS components available to facilitate the onboarding and transformation of raw data into LDES. They’re collectively known as the LDI bundle. Linked Data Interactions Repo (LDI) is a bundle of basic components used to receive, generate, transform, and output Linked Data. The LDI project is an effort to make interactions with Linked Data more fluent by providing easy building blocks. To allow a dataset to be published as LDES, we can use the LDI workbench to transform the original messages to linked data version objects with a specific ontology. These objects are then sent to an LDES Server to ingest, store, and make available to LDES Client consumers. The LDI suite of components can achieve this goal: . | Input of data - receive or scrape a remote HTTP endpoint | Transformation - map the data to a specific ontology, apply various transformations | Publishing - submit to a preconfigured LDES Server | . While there are multiple ways to handle the mapping of the input data, in this guide, we will focus on using the RML tool. The RMLMapper and the RMLStreamer are applications for Linux, Windows, and macOS machines for generating knowledge graphs. They both rely on declarative rules that define how the knowledge graphs are generated. Get started immediately by following the instructions on their GitHub repositories. ",
     "url": "/transformation/transformation#data-transformation",
     
     "relUrl": "/transformation/transformation#data-transformation"
-  },"30": {
+  },"32": {
     "doc": "Data Transformation",
     "title": "Data Transformation",
     "content": " ",
     "url": "/transformation/transformation",
     
     "relUrl": "/transformation/transformation"
-  },"31": {
+  },"33": {
     "doc": "OSLO data models",
     "title": "OSLO data models",
     "content": " ",
     "url": "/ontology_mapping/OSLO_models",
     
     "relUrl": "/ontology_mapping/OSLO_models"
-  },"32": {
+  },"34": {
     "doc": "Introduction of OSLO data models",
     "title": "Introduction of OSLO data models",
     "content": " ",
     "url": "/ontology_mapping/introduction",
     
     "relUrl": "/ontology_mapping/introduction"
-  },"33": {
+  },"35": {
     "doc": "Introduction to Ontology Mapping",
     "title": "Introduction to Ontology Mapping",
     "content": " ",
     "url": "/ontology_mapping/ontology_mapping",
     
     "relUrl": "/ontology_mapping/ontology_mapping"
-  },"34": {
+  },"36": {
     "doc": "Versioning data",
     "title": "Versioning data",
-    "content": " ",
+    "content": "Data versioning offers two key benefits for both data users and providers. Firstly, it enables users to focus on relevant data within a specific timeframe. For instance, a train schedule app doesn’t need last month’s delay data. Versioning allows providers to create ‘snapshot’ versions, marking dataset milestones. Users can then update their datasets by downloading only new changes (deltas) since these snapshots. This approach reduces the need for users to repeatedly download the entire dataset with each update, as they only need the latest changes. Providers also benefit as storing deltas reduces the redundancy of data storage. ",
     "url": "/versioning/versioning_data",
     
     "relUrl": "/versioning/versioning_data"
-  },"35": {
+  },"37": {
     "doc": "Publishing as LDES",
     "title": "Publishing Linked Data Sets as LDES",
     "content": "Once entities are available in the formed of versioned linked data objects, they can be published as an LDES Stream using a component called LDES Server. The LDES Server is a tool which can be used to publish versioned linked data objects as a stream. In other words, once a dataset has been enhanced with a data model in a linked data form, it can be made available as LDES using the LDES Server. The LDES Server enables a set of LDES-specific features which consumers expect to find like fragmentation for easier data access, pagination, caching, retention management etc. Publish an LDES Quick Start . ",
     "url": "/publish_LDES/publish_LDES#publishing-linked-data-sets-as-ldes",
     
     "relUrl": "/publish_LDES/publish_LDES#publishing-linked-data-sets-as-ldes"
-  },"36": {
+  },"38": {
     "doc": "Publishing as LDES",
     "title": "Publishing as LDES",
     "content": " ",
     "url": "/publish_LDES/publish_LDES",
     
     "relUrl": "/publish_LDES/publish_LDES"
-  },"37": {
+  },"39": {
     "doc": "Ongoing Maintenance and Updates",
     "title": "Ongoing Maintenance and Updates",
     "content": " ",
     "url": "/maintenance_and_security/maintenance",
     
     "relUrl": "/maintenance_and_security/maintenance"
-  },"38": {
+  },"40": {
     "doc": "Security of data",
     "title": "Security of data",
     "content": " ",

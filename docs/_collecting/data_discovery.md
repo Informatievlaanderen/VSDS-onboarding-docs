@@ -8,7 +8,7 @@ nav_order: 0
 
 ## Identify Data to be published
 
-As a first step, one needs to clearly identify the datasets to be published as LDES.
+As a first step, one must clearly identify the datasets to be published as LDES.
 
 - Establish the origin of the data
 - Establish the parameters for storing and using the data

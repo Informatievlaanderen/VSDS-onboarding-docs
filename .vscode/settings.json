@@ -49,5 +49,11 @@
     "will",
     "workbench",
     "WORKBENCH"
+  ],
+  "grammarly.selectors": [
+    {
+      "language": "markdown",
+      "scheme": "file"
+    }
   ]
 }

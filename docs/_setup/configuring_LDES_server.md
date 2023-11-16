@@ -1,7 +1,7 @@
 ---
 title: Configuring the LDES server
 layout: home
-nav_order: 0
+nav_order: 1
 ---
 
 # Configuring the LDES server
@@ -23,7 +23,34 @@ nav_order: 0
 
 ## proxy
 
-This directory contains configuration files or scripts related to the proxy server. A proxy server acts as an intermediary between users and the internet or between different parts of a network. It's often used for purposes like load balancing, security enhancements, or caching requests to improve performance.
+This directory contains configuration files or scripts related to the proxy server. A proxy server is an intermediary between users and the internet or between different network parts. It's often used for load balancing, security enhancements, or caching requests to improve performance.
+
+```conf
+proxy_cache_path /var/cache/nginx/static-cache levels=1:2 keys_zone=static-cache:10m;
+server {
+    listen 8080;
+
+    gzip on;
+    gzip_types application/n-triples application/ld+json text/turtle application/n-quads;
+
+    location /geomobility/admin {
+        deny all;
+    }
+
+    location /geomobility {
+        rewrite /geomobility/(.*) /$1  break;
+        proxy_pass http://ldes-server:8080/;
+        proxy_redirect     off;
+        proxy_set_header   Host $host;
+        proxy_cache static-cache;
+        proxy_cache_valid any 60m;
+        proxy_cache_key $scheme$proxy_host$request_uri$http_accept;
+        add_header X-Cache-Status $upstream_cache_status;
+        gzip_static on;
+    }
+}
+```
+
 
 ## poller
 
